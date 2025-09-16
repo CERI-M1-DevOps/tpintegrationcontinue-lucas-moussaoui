@@ -3,16 +3,17 @@ name : Java CI with Maven - Test and package
 on: pull_request
 
 jobs:
-  name : Nom du jobs
-  runs-on: ubuntu-latest
-  steps :
-    - name: Checkout depot courant
-      uses: actions/checkout@v4.3.0
+  BuildJava :
+    name : BuildJava
+    runs-on: ubuntu-latest
+    steps :
+      - name: Checkout depot courant
+        uses: actions/checkout@v4.3.0
 
-    - name: Setup Java JDK
-      uses: actions/setup-java@v4.7.1
-      with:
-        distribution: 'coretto'
-        java-version: '21'
-    - name: Build Maven
-      run : mvn -B package
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4.7.1
+        with:
+          distribution: 'coretto'
+          java-version: '21'
+      - name: Build Maven
+        run : mvn -B package

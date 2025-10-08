@@ -285,4 +285,15 @@ class ListeSimpleTest {
         System.out.println(listeATester);
         assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))", listeATester.toString());
     }
+
+    @Test
+    void echangerMemeNoeudNeChangeRien() {
+        listeATester.ajout(3);
+        listeATester.ajout(2);
+        listeATester.ajout(1);
+        Noeud r1 = listeATester.tete.getSuivant(); // Noeud(2)
+        listeATester.echanger(r1, r1); // même noeud
+        assertEquals("ListeSimple(Noeud(1), Noeud(2), Noeud(3))", listeATester.toString());
+    }
+
 }
